@@ -43,7 +43,6 @@ const TodoController = () => {
   };
 
   useEffect(() => {
-    console.log("sortOrder =>", sortOrder)
     if (sortOrder === "asc") {
       setTodos((prevTodos) =>
         [...prevTodos].sort(
