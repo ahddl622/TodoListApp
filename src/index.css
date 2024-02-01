@@ -1,13 +1,105 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  all: unset;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input-title-content-box {
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    font-size: 16px;
+    height: 2.1rem;
+    width: 15rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    border: 1px solid #999
+  }
+
+  .content {
+    width: 30rem;
+  }
+
+  .deadline {
+    width: 7.5rem;
+  }
+
+  .add-todo-btn {
+    margin-right: 1rem;
+    width: 7rem;
+    color: white;
+    background-color: skyblue;
+    border: none;
+    border-radius: 1rem;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.todo-container {
+  margin: 1rem;
+}
+
+.todo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  margin: 1rem;
+}
+
+.todo-card-item {
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+
+  width: 20rem;
+  height: 20rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+.card-action {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.card-action-btn {
+  width: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background-color: tomato;
+  color: white;
+}
+
+.btn-success {
+  background-color: skyblue;
+  color: white;
 }
