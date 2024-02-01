@@ -1,13 +1,14 @@
 import Header from "./components/layout/Header"
 import TodoController from "./components/todo/TodoController"
+import { TodoBody } from "./style/TodoStyle"
 
 
 function App() {
   return (
-    <div className="todo-container">
+    <TodoBody>
       <Header />
       <TodoController />
-    </div>
+    </TodoBody>
   )
 }
 

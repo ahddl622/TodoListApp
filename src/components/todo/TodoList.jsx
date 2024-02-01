@@ -1,10 +1,11 @@
+import { TodoItemList } from "../../style/TodoStyle";
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ headTitle, todos, onDeleteTodoItem, onToggleTodoItem }) => {
   return (
-    <section className="">
+    <section>
       <h2>{headTitle}</h2>
-      <ul>
+      <TodoItemList>
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}
@@ -13,7 +14,7 @@ const TodoList = ({ headTitle, todos, onDeleteTodoItem, onToggleTodoItem }) => {
             onToggleTodoItem={onToggleTodoItem}
           />
         ))}
-      </ul>
+      </TodoItemList>
     </section>
   );
 };

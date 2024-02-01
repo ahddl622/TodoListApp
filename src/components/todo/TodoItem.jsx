@@ -1,4 +1,4 @@
-import { TodoCardItem } from "../../style/TodoStyle";
+import { TodoCardItem, TodoCardItemContainer } from "../../style/TodoStyle";
 
 const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
   const { id, title, content, isDone, deadline } = todo;
@@ -12,7 +12,7 @@ const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
 
   return (
     <li>
-      <article className="card">
+      <TodoCardItemContainer>
         <TodoCardItem $isDone={isDone} className="card-body">
           <h3>{title}</h3>
           <p>{content}</p>
@@ -32,7 +32,7 @@ const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
             {isDone ? "취소" : "완료"}
           </button>
         </div>
-      </article>
+      </TodoCardItemContainer>
     </li>
   );
 };

@@ -1,3 +1,5 @@
+import { AddTodoBtn, TodoInput, TodoInputBox } from "../../style/TodoStyle";
+
 const TodoForm = ({ onSubmitTodo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,16 +20,16 @@ const TodoForm = ({ onSubmitTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="input-title-content-box">
+    <TodoInputBox onSubmit={handleSubmit} className="input-title-content-box">
       <div>
-        <input type="text" placeholder=" 제목" name="title" className="title" />
-        <input type="text" placeholder=" 내용" name="content" className="content"/>
-        <input type="date" name="deadline" className="deadline" />
+        <TodoInput type="text" placeholder=" 제목" name="title" />
+        <TodoInput inputWidth="30rem" type="text" placeholder=" 내용" name="content"/>
+        <TodoInput inputWidth="7rem"type="date" name="deadline" />
       </div>
-      <button type="submit" className="add-todo-btn">
+      <AddTodoBtn type="submit" className="add-todo-btn">
         제출
-      </button>
-    </form>
+      </AddTodoBtn>
+    </TodoInputBox>
   );
 };
 
