@@ -1,3 +1,5 @@
+import { TodoCardItem } from "../../style/TodoStyle";
+
 const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
   const { id, title, content, isDone, deadline } = todo;
 
@@ -11,11 +13,11 @@ const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
   return (
     <li>
       <article className="card">
-        <div className="card-body">
+        <TodoCardItem $isDone={isDone} className="card-body">
           <h3>{title}</h3>
           <p>{content}</p>
           <time>{formattedDeadLine}</time>
-        </div>
+        </TodoCardItem>
         <div className="card-action">
           <button
             onClick={() => onDeleteTodoItem(id)}
