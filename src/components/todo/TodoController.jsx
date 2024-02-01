@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
@@ -38,10 +38,12 @@ const TodoController = () => {
 
   const onChangeSortOrder = (e) => {
     const nextSortOrder = e.target.value;
-
     setSortOder(nextSortOrder);
+  };
 
-    if (nextSortOrder === "asc") {
+  useEffect(() => {
+    console.log("sortOrder =>", sortOrder)
+    if (sortOrder === "asc") {
       setTodos((prevTodos) =>
         [...prevTodos].sort(
           (a, b) => new Date(a.deadline) - new Date(b.deadline)
@@ -49,8 +51,11 @@ const TodoController = () => {
       );
       return;
     }
-    setTodos((prevTodos) => [...prevTodos].sort((a, b) => new Date(b.deadline) - new Date(a.deadline)))
-  };
+
+    setTodos((prevTodos) =>
+      [...prevTodos].sort((a, b) => new Date(b.deadline) - new Date(a.deadline))
+    );
+  }, [sortOrder]);
 
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
