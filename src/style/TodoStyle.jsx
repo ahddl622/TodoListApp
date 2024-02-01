@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const TodoHeader = styled.header`
   display: flex;
   flex-direction: row;
@@ -10,5 +11,5 @@ export const TodoHeader = styled.header`
 
 export const TodoCardItem = styled.div`
   padding: 1rem;
-  text-decoration: ${({isDone}) => (isDone ? "line-through" : "none")}
-`
+  text-decoration: ${({ isDone }) => (isDone ? "line-through" : "none")};
+`;
