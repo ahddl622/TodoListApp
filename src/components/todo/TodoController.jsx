@@ -12,6 +12,7 @@ const todoObj = {
 
 const TodoController = () => {
   const [todos, setTodos] = useState([todoObj]);
+  const [sortOrder, setSortOder] = useState("asc");
 
   const onSubmitTodo = (nextTodo) => {
     setTodos((prevTodos) => [nextTodo, ...prevTodos]);
@@ -35,11 +36,33 @@ const TodoController = () => {
     );
   };
 
+  const onChangeSortOrder = (e) => {
+    const nextSortOrder = e.target.value;
+
+    setSortOder(nextSortOrder);
+
+    if (nextSortOrder === "asc") {
+      setTodos((prevTodos) =>
+        [...prevTodos].sort(
+          (a, b) => new Date(a.deadline) - new Date(b.deadline)
+        )
+      );
+      return;
+    }
+    setTodos((prevTodos) => [...prevTodos].sort((a, b) => new Date(b.deadline) - new Date(a.deadline)))
+  };
+
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
   return (
     <main>
       <TodoForm onSubmitTodo={onSubmitTodo} />
+      <div>
+        <select onChange={onChangeSortOrder}>
+          <option value="asc">오름차순</option>
+          <option value="desc">내림차순</option>
+        </select>
+      </div>
       <TodoList
         headTitle="Working..🔥"
         todos={workingTodos}
@@ -47,7 +70,7 @@ const TodoController = () => {
         onToggleTodoItem={onToggleTodoItem}
       />
       <TodoList
-      headTitle="Done..🎉"
+        headTitle="Done..🎉"
         todos={doneTodos}
         onDeleteTodoItem={onDeleteTodoItem}
         onToggleTodoItem={onToggleTodoItem}
