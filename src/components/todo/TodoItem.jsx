@@ -13,7 +13,7 @@ const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
   return (
     <li>
       <TodoCardItemContainer>
-        <TodoCardItem $isDone={isDone}>
+        <TodoCardItem isDone={isDone}>
           <h3>{title}</h3>
           <p>{content}</p>
           <time>{formattedDeadLine}</time>

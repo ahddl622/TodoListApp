@@ -85,6 +85,7 @@ export const TodoActionBtn = styled.button`
   border-radius: 1rem;
   cursor: pointer;
   color: white;
+  // 콘솔에 경고 발생
   background-color: ${(props) => props.backgroundColor};
 `;
 

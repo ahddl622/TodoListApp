@@ -5,8 +5,8 @@ import TodoSort from "./TodoSort";
 
 const todoObj = {
   id: 1,
-  title: "Learn React",
-  content: "Learn React today",
+  title: "React 공부하기",
+  content: "React 강의 완강하기",
   deadline: "2024-02-01",
   isDone: false,
 };
