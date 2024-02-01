@@ -21,7 +21,7 @@ const TodoForm = ({ onSubmitTodo }) => {
     <form onSubmit={handleSubmit} className="input-title-content-box">
       <div>
         <input type="text" placeholder=" 제목" name="title" className="title" />
-        <input type="text" placeholder=" 내용" name="content" className="content" />
+        <input type="text" placeholder=" 내용" name="content" className="content"/>
         <input type="date" name="deadline" className="deadline" />
       </div>
       <button type="submit" className="add-todo-btn">

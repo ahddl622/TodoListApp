@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import TodoSort from "./TodoSort";
 
 const todoObj = {
   id: 1,
@@ -62,12 +63,7 @@ const TodoController = () => {
   return (
     <main>
       <TodoForm onSubmitTodo={onSubmitTodo} />
-      <div>
-        <select onChange={onChangeSortOrder}>
-          <option value="asc">오름차순</option>
-          <option value="desc">내림차순</option>
-        </select>
-      </div>
+      <TodoSort onChangeSortOrder={onChangeSortOrder}/>
       <TodoList
         headTitle="Working..🔥"
         todos={workingTodos}
