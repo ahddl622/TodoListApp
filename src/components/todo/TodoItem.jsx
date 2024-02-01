@@ -1,4 +1,4 @@
-import { TodoCardItem, TodoCardItemContainer } from "../../style/TodoStyle";
+import { TodoActionBtn, TodoActionContainer, TodoCardItem, TodoCardItemContainer } from "../../style/TodoStyle";
 
 const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
   const { id, title, content, isDone, deadline } = todo;
@@ -13,25 +13,23 @@ const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
   return (
     <li>
       <TodoCardItemContainer>
-        <TodoCardItem $isDone={isDone} className="card-body">
+        <TodoCardItem $isDone={isDone}>
           <h3>{title}</h3>
           <p>{content}</p>
           <time>{formattedDeadLine}</time>
         </TodoCardItem>
-        <div className="card-action">
-          <button
+        <TodoActionContainer>
+          <TodoActionBtn backgroundColor="tomato"
             onClick={() => onDeleteTodoItem(id)}
-            className="card-action-btn btn-delete"
           >
             삭제
-          </button>
-          <button
+          </TodoActionBtn>
+          <TodoActionBtn backgroundColor="skyblue"
             onClick={() => onToggleTodoItem(id)}
-            className="card-action-btn btn-success"
           >
             {isDone ? "취소" : "완료"}
-          </button>
-        </div>
+          </TodoActionBtn>
+        </TodoActionContainer>
       </TodoCardItemContainer>
     </li>
   );

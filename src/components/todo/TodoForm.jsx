@@ -23,8 +23,8 @@ const TodoForm = ({ onSubmitTodo }) => {
     <TodoInputBox onSubmit={handleSubmit} className="input-title-content-box">
       <div>
         <TodoInput type="text" placeholder=" 제목" name="title" />
-        <TodoInput inputWidth="30rem" type="text" placeholder=" 내용" name="content"/>
-        <TodoInput inputWidth="7rem"type="date" name="deadline" />
+        <TodoInput $inputWidth="30rem" type="text" placeholder=" 내용" name="content"/>
+        <TodoInput $inputWidth="7rem"type="date" name="deadline" />
       </div>
       <AddTodoBtn type="submit" className="add-todo-btn">
         제출
