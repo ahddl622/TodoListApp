@@ -18,7 +18,7 @@ export const TodoHeader = styled.header`
 export const TodoInput = styled.input`
   font-size: 16px;
   height: 2.1rem;
-  width: ${(props) => props.inputWidth};
+  width: ${(props) => props.$inputWidth};
   margin-right: 1rem;
   border-radius: 10px;
   border: 1px solid #999;
@@ -62,7 +62,7 @@ export const TodoCardItemContainer = styled.article`
 
 export const TodoCardItem = styled.div`
   padding: 1rem;
-  text-decoration: ${({ isDone }) => (isDone ? "line-through" : "none")};
+  text-decoration: ${(props) => (props.$isDone ? "line-through" : "none")};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,7 +86,7 @@ export const TodoActionBtn = styled.button`
   cursor: pointer;
   color: white;
   // 콘솔에 경고 발생
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.$backgroundColor};
 `;
 
 export const SortContainer = styled.select`
