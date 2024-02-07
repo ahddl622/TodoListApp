@@ -51,6 +51,7 @@ export const TodoCardItemContainer = styled.article`
   padding: 1rem;
   border-radius: 0.5rem;
   margin-right: 1rem;
+  cursor: pointer;
 
   width: 20rem;
   height: 20rem;
@@ -62,7 +63,7 @@ export const TodoCardItemContainer = styled.article`
 
 export const TodoCardItem = styled.div`
   padding: 1rem;
-  text-decoration: ${(props) => (props.$isDone ? "line-through" : "none")};
+  text-decoration: ${({ $isDone }) => ($isDone ? "line-through" : "none")};
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,15 +1,9 @@
-import Header from "./components/layout/Header"
-import TodoController from "./components/todo/TodoController"
-import { TodoBody } from "./style/TodoStyle"
-
+import Router from "./shared/Router";
 
 function App() {
   return (
-    <TodoBody>
-      <Header />
-      <TodoController />
-    </TodoBody>
-  )
+      <Router />
+  );
 }
 
-export default App
+export default App;

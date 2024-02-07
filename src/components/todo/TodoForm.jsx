@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { AddTodoBtn, TodoInput, TodoInputBox } from "../../style/TodoStyle";
+import { TodoContext } from "../../context/TodoContext";
 
-const TodoForm = ({ onSubmitTodo }) => {
+const TodoForm = () => {
+  const { onSubmitTodo } = useContext(TodoContext)
   const handleSubmit = (e) => {
     e.preventDefault();
 

@@ -1,12 +1,17 @@
+import { useContext } from "react";
 import {
   TodoActionBtn,
   TodoActionContainer,
   TodoCardItem,
   TodoCardItemContainer,
 } from "../../style/TodoStyle";
+import { useNavigate } from "react-router-dom";
+import { TodoContext } from "../../context/TodoContext";
 
-const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
+const TodoItem = ({ todo }) => {
   const { id, title, content, isDone, deadline } = todo;
+  const { onDeleteTodoItem, onToggleTodoItem } = useContext(TodoContext);
+  const navigate = useNavigate()
 
   const formattedDeadLine = new Date(deadline).toLocaleDateString("ko-KR", {
     year: "numeric",
@@ -17,13 +22,13 @@ const TodoItem = ({ todo, onDeleteTodoItem, onToggleTodoItem }) => {
 
   return (
     <li>
-      <TodoCardItemContainer>
+      <TodoCardItemContainer onClick={() => navigate(`/detail/${id}`)}>
         <TodoCardItem $isDone={isDone}>
           <h3>{title}</h3>
           <p>{content}</p>
           <time>{formattedDeadLine}</time>
         </TodoCardItem>
-        <TodoActionContainer>
+        <TodoActionContainer onClick={(e) => e.stopPropagation()}>
           <TodoActionBtn
             $backgroundColor="tomato"
             onClick={() => onDeleteTodoItem(id)}
