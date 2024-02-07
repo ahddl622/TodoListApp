@@ -7,12 +7,12 @@ import TodoProvider from "./context/TodoContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <TodoProvider>
-    <React.StrictMode>
+  <React.StrictMode>
+    <TodoProvider>
       <TodoGlobalStyle />
       <App />
-    </React.StrictMode>
-  </TodoProvider>
+    </TodoProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

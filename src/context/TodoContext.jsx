@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 const todoObj = {
-  id: 1,
+  id: "1",
   title: "React 공부하기",
   content: "React 강의 완강하기",
   deadline: "2024-02-01",

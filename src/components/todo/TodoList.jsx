@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { TodoItemList } from "../../style/TodoStyle";
 import TodoItem from "./TodoItem";
 
