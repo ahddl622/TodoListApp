@@ -1,41 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoSort from "./TodoSort";
-
-const todoObj = {
-  id: 1,
-  title: "React 공부하기",
-  content: "React 강의 완강하기",
-  deadline: "2024-02-01",
-  isDone: false,
-};
+import { TodoContext } from "../../context/TodoContext";
 
 const TodoController = () => {
-  const [todos, setTodos] = useState([todoObj]);
   const [sortOrder, setSortOder] = useState("asc");
-
-  const onSubmitTodo = (nextTodo) => {
-    setTodos((prevTodos) => [nextTodo, ...prevTodos]);
-  };
-
-  const onDeleteTodoItem = (id) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-  };
-
-  const onToggleTodoItem = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todoItem) => {
-        if (todoItem.id === id) {
-          return {
-            ...todoItem,
-            isDone: !todoItem.isDone,
-          };
-        }
-        return todoItem;
-      })
-    );
-  };
+  const {todos, setTodos} = useContext(TodoContext)
 
   const onChangeSortOrder = (e) => {
     const nextSortOrder = e.target.value;
@@ -55,25 +26,21 @@ const TodoController = () => {
     setTodos((prevTodos) =>
       [...prevTodos].sort((a, b) => new Date(b.deadline) - new Date(a.deadline))
     );
-  }, [sortOrder]);
+  }, [sortOrder, setTodos]);
 
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
   return (
     <main>
-      <TodoForm onSubmitTodo={onSubmitTodo} />
+      <TodoForm/>
       <TodoSort onChangeSortOrder={onChangeSortOrder}/>
       <TodoList
         headTitle="Working..🔥"
         todos={workingTodos}
-        onDeleteTodoItem={onDeleteTodoItem}
-        onToggleTodoItem={onToggleTodoItem}
       />
       <TodoList
         headTitle="Done..🎉"
         todos={doneTodos}
-        onDeleteTodoItem={onDeleteTodoItem}
-        onToggleTodoItem={onToggleTodoItem}
       />
     </main>
   );

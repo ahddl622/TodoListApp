@@ -1,7 +1,7 @@
 import { TodoItemList } from "../../style/TodoStyle";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ headTitle, todos, onDeleteTodoItem, onToggleTodoItem }) => {
+const TodoList = ({ headTitle, todos, }) => {
   return (
     <section>
       <h2>{headTitle}</h2>
@@ -10,8 +10,6 @@ const TodoList = ({ headTitle, todos, onDeleteTodoItem, onToggleTodoItem }) => {
           <TodoItem
             key={todo.id}
             todo={todo}
-            onDeleteTodoItem={onDeleteTodoItem}
-            onToggleTodoItem={onToggleTodoItem}
           />
         ))}
       </TodoItemList>

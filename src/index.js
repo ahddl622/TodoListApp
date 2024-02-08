@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import TodoGlobalStyle from './style/TodoGlobalStyle';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import TodoGlobalStyle from "./style/TodoGlobalStyle";
+import TodoProvider from "./context/TodoContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <TodoGlobalStyle />
-    <App />
+    <TodoProvider>
+      <TodoGlobalStyle />
+      <App />
+    </TodoProvider>
   </React.StrictMode>
 );
 
