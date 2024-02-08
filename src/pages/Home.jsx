@@ -6,12 +6,10 @@ import TodoController from '../components/todo/TodoController'
 
 const Home = () => {
   return (
-    <TodoProvider>
       <TodoBody>
         <Header />
         <TodoController />
       </TodoBody>
-    </TodoProvider>
   )
 }
 
