@@ -1,27 +1,37 @@
-import { createContext, useState } from "react";
-
-const todoObj = {
-  id: "1",
-  title: "React 공부하기",
-  content: "React 강의 완강하기",
-  deadline: "2024-02-01",
-  isDone: false,
-};
+import { createContext, useEffect, useState } from "react";
+import { createTodo, deleteTodo, getTodos, updateTodo } from "../api/todo-api";
 
 export const TodoContext = createContext();
 
 const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useState([todoObj]);
+  const [todos, setTodos] = useState([]);
 
-  const onSubmitTodo = (nextTodo) => {
-    setTodos((prevTodos) => [nextTodo, ...prevTodos]);
+  useEffect(() => {
+    const fetchTodos = async () => {
+      const data = await getTodos();
+      setTodos(data);
+    };
+
+    fetchTodos();
+  }, []);
+
+  const onSubmitTodo = async (nextTodo) => {
+    await createTodo(nextTodo);
+
+    setTodos((prevTodos)=> [...prevTodos, nextTodo])
   };
 
-  const onDeleteTodoItem = (id) => {
+  const onDeleteTodoItem = async (id) => {
+    await deleteTodo(id);
+
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
-  const onToggleTodoItem = (id) => {
+  const onToggleTodoItem = async (id) => {
+    await updateTodo(id, {
+      isDone: !todos.find((todoItem) => todoItem.id === id).isDone,
+    });
+
     setTodos((prevTodos) =>
       prevTodos.map((todoItem) => {
         if (todoItem.id === id) {
